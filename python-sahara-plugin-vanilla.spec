@@ -74,8 +74,9 @@ Requires:         python%{pyver}-requests >= 2.14.2
 Requires:         python%{pyver}-sahara
 Requires:         python%{pyver}-six >= 1.10.0
 
-# Extend the Sahara engine package
+# Extend the Sahara api and engine packages
 %if 0%{?fedora} || 0%{?rhel} > 7
+Supplements:      openstack-sahara-api
 Supplements:      openstack-sahara-engine
 %endif
 
