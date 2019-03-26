@@ -52,7 +52,7 @@ BuildRequires:    python%{pyver}-oslo-i18n >= 3.15.3
 BuildRequires:    python%{pyver}-oslo-log >= 3.36.0
 BuildRequires:    python%{pyver}-oslo-serialization >= 2.18.0
 BuildRequires:    python%{pyver}-oslo-utils >= 3.33.0
-BuildRequires:    python%{pyver}-sahara
+BuildRequires:    python%{pyver}-sahara >= 10.0.0
 
 
 %description
@@ -71,7 +71,7 @@ Requires:         python%{pyver}-oslo-serialization >= 2.18.0
 Requires:         python%{pyver}-oslo-utils >= 3.33.0
 Requires:         python%{pyver}-pbr >= 2.0.0
 Requires:         python%{pyver}-requests >= 2.14.2
-Requires:         python%{pyver}-sahara
+Requires:         python%{pyver}-sahara >= 10.0.0
 Requires:         python%{pyver}-six >= 1.10.0
 
 # Extend the Sahara api and engine packages
