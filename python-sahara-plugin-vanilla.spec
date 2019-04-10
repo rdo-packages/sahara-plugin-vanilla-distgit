@@ -1,4 +1,3 @@
-%global milestone .0rc1
 # Macros for py2/py3 compatibility
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global pyver %{python3_pkgversion}
@@ -31,13 +30,11 @@ manage Vanilla clusters on OpenStack.
 
 Name:          python-sahara-plugin-vanilla
 Version:       1.0.0
-Release:       0.1%{?milestone}%{?dist}
+Release:       1%{?dist}
 Summary:       Apache Hadoop cluster management on OpenStack
 License:       ASL 2.0
 URL:           https://launchpad.net/sahara
 Source0:       https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_version}.tar.gz
-#
-# patches_base=1.0.0.0rc1
 #
 
 BuildArch:     noarch
@@ -186,5 +183,8 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 
 
 %changelog
+* Wed Apr 10 2019 RDO <dev@lists.rdoproject.org> 1.0.0-1
+- Update to 1.0.0
+
 * Wed Mar 27 2019 Luigi Toscano <ltoscano@redhat.com> 1.0.0-0.1.0rc1
 - Update to 1.0.0.0rc1
