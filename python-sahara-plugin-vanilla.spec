@@ -78,6 +78,7 @@ Requires:         python%{pyver}-six >= 1.10.0
 %if 0%{?fedora} || 0%{?rhel} > 7
 Supplements:      openstack-sahara-api
 Supplements:      openstack-sahara-engine
+Supplements:      openstack-sahara-image-pack
 %endif
 
 %description -n python%{pyver}-%{pname}
