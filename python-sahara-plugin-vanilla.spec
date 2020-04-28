@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 # Globals Declaration
 
 
@@ -38,41 +27,41 @@ Source0:       https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_versi
 BuildArch:     noarch
 
 BuildRequires:    git
-BuildRequires:    python%{pyver}-devel
-BuildRequires:    python%{pyver}-setuptools
-BuildRequires:    python%{pyver}-pbr >= 2.0.0
+BuildRequires:    python3-devel
+BuildRequires:    python3-setuptools
+BuildRequires:    python3-pbr >= 2.0.0
 BuildRequires:    openstack-macros
 
 # test requirements
-BuildRequires:    python%{pyver}-stestr >= 1.0.0
-BuildRequires:    python%{pyver}-testscenarios
-BuildRequires:    python%{pyver}-oslotest
-BuildRequires:    python%{pyver}-hacking
-BuildRequires:    python%{pyver}-oslo-i18n >= 3.15.3
-BuildRequires:    python%{pyver}-oslo-log >= 3.36.0
-BuildRequires:    python%{pyver}-oslo-serialization >= 2.18.0
-BuildRequires:    python%{pyver}-oslo-utils >= 3.33.0
-BuildRequires:    python%{pyver}-sahara >= 10.0.0
+BuildRequires:    python3-stestr >= 1.0.0
+BuildRequires:    python3-testscenarios
+BuildRequires:    python3-oslotest
+BuildRequires:    python3-hacking
+BuildRequires:    python3-oslo-i18n >= 3.15.3
+BuildRequires:    python3-oslo-log >= 3.36.0
+BuildRequires:    python3-oslo-serialization >= 2.18.0
+BuildRequires:    python3-oslo-utils >= 3.33.0
+BuildRequires:    python3-sahara >= 10.0.0
 
 
 %description
 %{common_desc}
 
 
-%package -n python%{pyver}-%{pname}
+%package -n python3-%{pname}
 Summary:          Vanilla plugin for Sahara
-%{?python_provide:%python_provide python%{pyver}-%{pname}}
+%{?python_provide:%python_provide python3-%{pname}}
 
-Requires:         python%{pyver}-babel >= 2.3.4
-Requires:         python%{pyver}-eventlet >= 0.18.2
-Requires:         python%{pyver}-oslo-i18n >= 3.15.3
-Requires:         python%{pyver}-oslo-log >= 3.36.0
-Requires:         python%{pyver}-oslo-serialization >= 2.18.0
-Requires:         python%{pyver}-oslo-utils >= 3.33.0
-Requires:         python%{pyver}-pbr >= 2.0.0
-Requires:         python%{pyver}-requests >= 2.14.2
-Requires:         python%{pyver}-sahara >= 10.0.0
-Requires:         python%{pyver}-six >= 1.10.0
+Requires:         python3-babel >= 2.3.4
+Requires:         python3-eventlet >= 0.18.2
+Requires:         python3-oslo-i18n >= 3.15.3
+Requires:         python3-oslo-log >= 3.36.0
+Requires:         python3-oslo-serialization >= 2.18.0
+Requires:         python3-oslo-utils >= 3.33.0
+Requires:         python3-pbr >= 2.0.0
+Requires:         python3-requests >= 2.14.2
+Requires:         python3-sahara >= 10.0.0
+Requires:         python3-six >= 1.10.0
 
 # Extend the Sahara api and engine packages
 %if 0%{?fedora} || 0%{?rhel} > 7
@@ -81,16 +70,16 @@ Supplements:      openstack-sahara-engine
 Supplements:      openstack-sahara-image-pack
 %endif
 
-%description -n python%{pyver}-%{pname}
+%description -n python3-%{pname}
 %{common_desc}
 
 
-%package -n python%{pyver}-%{pname}-tests-unit
+%package -n python3-%{pname}-tests-unit
 Summary:        Tests of the Vanilla plugin for Sahara
-%{?python_provide:%python_provide python%{pyver}-%{pname}-tests-unit}
-Requires:       python%{pyver}-%{pname} = %{version}-%{release}
+%{?python_provide:%python_provide python3-%{pname}-tests-unit}
+Requires:       python3-%{pname} = %{version}-%{release}
 
-%description -n python%{pyver}-%{pname}-tests-unit
+%description -n python3-%{pname}-tests-unit
 %{common_desc}
 
 This package contains the test files of the Vanilla plugin for Sahara.
@@ -101,17 +90,12 @@ This package contains the test files of the Vanilla plugin for Sahara.
 %package -n python-%{pname}-doc
 Group:         Documentation
 Summary:       Usage documentation for the Vanilla plugin for Sahara
-Requires:      python%{pyver}-%{pname} = %{version}-%{release}
-BuildRequires:    python%{pyver}-reno
-BuildRequires:    python%{pyver}-sphinx >= 1.6.2
-BuildRequires:    python%{pyver}-openstackdocstheme >= 1.18.1
+Requires:      python3-%{pname} = %{version}-%{release}
+BuildRequires:    python3-reno
+BuildRequires:    python3-sphinx >= 1.6.2
+BuildRequires:    python3-openstackdocstheme >= 1.18.1
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:    python-sphinxcontrib-httpdomain
-%else
-BuildRequires:    python%{pyver}-sphinxcontrib-httpdomain
-%endif
+BuildRequires:    python3-sphinxcontrib-httpdomain
 
 %description -n python-%{pname}-doc
 %{common_desc}
@@ -134,19 +118,19 @@ chmod a+x sahara_plugin_vanilla/plugins/vanilla/hadoop2/resources/tmp-cleanup.sh
 
 
 %build
-%{pyver_build}
+%{py3_build}
 
 
 %if 0%{?with_doc}
 export PYTHONPATH=.
-sphinx-build-%{pyver} -W -b html doc/source doc/build/html
+sphinx-build -W -b html doc/source doc/build/html
 rm -rf doc/build/html/.{doctrees,buildinfo}
-sphinx-build-%{pyver} -W -b man doc/source doc/build/man
+sphinx-build -W -b man doc/source doc/build/man
 %endif
 
 
 %install
-%{pyver_install}
+%{py3_install}
 
 
 %if 0%{?with_doc}
@@ -159,19 +143,19 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 #%check
 #export PATH=$PATH:%{buildroot}/usr/bin
 #export PYTHONPATH=$PWD
-#stestr-%{pyver} run
+#stestr run
 
 
-%files -n python%{pyver}-%{pname}
+%files -n python3-%{pname}
 %doc README.rst
 %license LICENSE
-%{pyver_sitelib}/%{module}
-%{pyver_sitelib}/%{module}-%{upstream_version}-py?.?.egg-info
-%exclude %{pyver_sitelib}/%{module}/tests
+%{python3_sitelib}/%{module}
+%{python3_sitelib}/%{module}-%{upstream_version}-py?.?.egg-info
+%exclude %{python3_sitelib}/%{module}/tests
 
-%files -n python%{pyver}-%{pname}-tests-unit
+%files -n python3-%{pname}-tests-unit
 %license LICENSE
-%{pyver_sitelib}/%{module}/tests
+%{python3_sitelib}/%{module}/tests
 
 %if 0%{?with_doc}
 %files -n python-%{pname}-doc
