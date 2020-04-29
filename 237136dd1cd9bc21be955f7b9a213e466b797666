@@ -1,0 +1,9 @@
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Workflow+1: Yatin Karel <ykarel@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 29 Apr 2020 10:41:13 +0000
+Reviewed-on: https://review.rdoproject.org/r/26954
+Project: openstack/sahara-plugin-vanilla-distgit
+Branch: refs/heads/rpm-master
