@@ -144,7 +144,7 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 %doc README.rst
 %license LICENSE
 %{python3_sitelib}/%{module}
-%{python3_sitelib}/%{module}-%{upstream_version}-py?.?.egg-info
+%{python3_sitelib}/%{module}-%{upstream_version}-py%{python3_version}.egg-info
 %exclude %{python3_sitelib}/%{module}/tests
 
 %files -n python3-%{pname}-tests-unit
