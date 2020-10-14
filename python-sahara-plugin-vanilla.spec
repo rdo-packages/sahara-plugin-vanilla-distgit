@@ -1,4 +1,5 @@
-%global milestone .0rc1
+%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 # Globals Declaration
 
 
@@ -16,16 +17,22 @@ manage Vanilla clusters on OpenStack.
 
 Name:          python-sahara-plugin-vanilla
 Version:       4.0.0
-Release:       0.1%{?milestone}%{?dist}
+Release:       1%{?dist}
 Summary:       Apache Hadoop cluster management on OpenStack
 License:       ASL 2.0
 URL:           https://launchpad.net/sahara
 Source0:       https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_version}.tar.gz
-#
-# patches_base=4.0.0.0rc1
-#
-
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+Source101:        https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_version}.tar.gz.asc
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+%endif
 BuildArch:     noarch
+
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+BuildRequires:  /usr/bin/gpgv2
+%endif
 
 BuildRequires:    git
 BuildRequires:    python3-devel
@@ -105,6 +112,10 @@ This documentation provides details about the Vanilla plugin for Sahara.
 
 
 %prep
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+%{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
+%endif
 %autosetup -n %{pname}-%{upstream_version} -S git
 
 # let RPM handle deps
@@ -165,6 +176,10 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 
 
 %changelog
+* Wed Oct 14 2020 RDO <dev@lists.rdoproject.org> 4.0.0-1
+- Update to 4.0.0
+- Implement sources verification using upstream gpg signature
+
 * Wed Sep 23 2020 RDO <dev@lists.rdoproject.org> 4.0.0-0.1.0rc1
 - Update to 4.0.0.0rc1
 
