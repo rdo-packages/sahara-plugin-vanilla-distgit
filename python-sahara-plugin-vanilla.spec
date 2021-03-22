@@ -61,7 +61,7 @@ Summary:          Vanilla plugin for Sahara
 %{?python_provide:%python_provide python3-%{pname}}
 
 Requires:         python3-babel >= 2.3.4
-Requires:         python3-eventlet >= 0.18.2
+Requires:         python3-eventlet >= 0.26.0
 Requires:         python3-oslo-i18n >= 3.15.3
 Requires:         python3-oslo-log >= 3.36.0
 Requires:         python3-oslo-serialization >= 2.18.0
