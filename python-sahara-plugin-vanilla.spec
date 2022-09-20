@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 # Globals Declaration
 
 
@@ -16,12 +17,16 @@ The Vanilla plugin for Sahara allows Sahara to provision and \
 manage Vanilla clusters on OpenStack.
 
 Name:          python-sahara-plugin-vanilla
-Version:       XXX
-Release:       XXX
+Version:       8.0.0
+Release:       0.1%{?milestone}%{?dist}
 Summary:       Apache Hadoop cluster management on OpenStack
 License:       ASL 2.0
 URL:           https://launchpad.net/sahara
 Source0:       https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_version}.tar.gz
+#
+# patches_base=8.0.0.0rc1
+#
+
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 Source101:        https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_version}.tar.gz.asc
@@ -176,3 +181,6 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 
 
 %changelog
+* Tue Sep 20 2022 RDO <dev@lists.rdoproject.org> 8.0.0-0.1.0rc1
+- Update to 8.0.0.0rc1
+
