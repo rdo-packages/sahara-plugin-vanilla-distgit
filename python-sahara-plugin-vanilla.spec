@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 # Globals Declaration
@@ -18,13 +17,11 @@ manage Vanilla clusters on OpenStack.
 
 Name:          python-sahara-plugin-vanilla
 Version:       8.0.0
-Release:       0.1%{?milestone}%{?dist}
+Release:       1%{?dist}
 Summary:       Apache Hadoop cluster management on OpenStack
 License:       ASL 2.0
 URL:           https://launchpad.net/sahara
 Source0:       https://tarballs.openstack.org/%{pname}/%{pname}-%{upstream_version}.tar.gz
-#
-# patches_base=8.0.0.0rc1
 #
 
 # Required for tarball sources verification
@@ -181,6 +178,9 @@ install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
 
 
 %changelog
+* Wed Oct 05 2022 RDO <dev@lists.rdoproject.org> 8.0.0-1
+- Update to 8.0.0
+
 * Tue Sep 20 2022 RDO <dev@lists.rdoproject.org> 8.0.0-0.1.0rc1
 - Update to 8.0.0.0rc1
 
