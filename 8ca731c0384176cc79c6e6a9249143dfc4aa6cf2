@@ -1,0 +1,10 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 15 Sep 2023 16:47:44 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/sahara-plugin-vanilla-distgit/+/50056
+Project: openstack/sahara-plugin-vanilla-distgit
+Branch: refs/heads/bobcat-rdo
