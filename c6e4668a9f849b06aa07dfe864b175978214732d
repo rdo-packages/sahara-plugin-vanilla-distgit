@@ -33,6 +33,24 @@
       "message": "It\u0027s a bit weird, the failing job is distgit-cbs-validate-centos9 but it\u0027s actually running on centos8(stream)?",
       "revId": "c6e4668a9f849b06aa07dfe864b175978214732d",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "096e383a_a1f01f7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-10-04T16:36:55Z",
+      "side": 1,
+      "message": "indeed the job runs on CS8, but the CBS build is run against CS9 buildroot.\nFor DLRN build that\u0027s the same case, but we\u0027re using mock",
+      "parentUuid": "a282ed29_1e997ad0",
+      "revId": "c6e4668a9f849b06aa07dfe864b175978214732d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ],
   "submitRequirementResults": []
