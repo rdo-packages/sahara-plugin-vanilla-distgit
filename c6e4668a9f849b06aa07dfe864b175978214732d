@@ -1,0 +1,8 @@
+Code-Review+2: Luigi Toscano <ltoscano@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Workflow+1: Luigi Toscano <ltoscano@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 04 Oct 2023 15:43:31 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/sahara-plugin-vanilla-distgit/+/50304
+Project: openstack/sahara-plugin-vanilla-distgit
+Branch: refs/heads/bobcat-rdo
