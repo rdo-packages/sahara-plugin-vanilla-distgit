@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "c6e4668a9f849b06aa07dfe864b175978214732d",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a282ed29_1e997ad0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2023-10-04T15:20:23Z",
+      "side": 1,
+      "message": "It\u0027s a bit weird, the failing job is distgit-cbs-validate-centos9 but it\u0027s actually running on centos8(stream)?",
+      "revId": "c6e4668a9f849b06aa07dfe864b175978214732d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
